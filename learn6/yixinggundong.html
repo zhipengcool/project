@@ -1,0 +1,80 @@
+<html>
+<head>
+    <title></title>
+    <style type="text/css">
+        .swiper-container{
+            height: 400px;
+        }
+        .investproTab{
+            position: absolute;
+            top: 20px;
+            left: 0;
+        }
+        .investpro-next{
+            top: 40px;
+        }
+       /* .investpro{
+            -webkit-transition: all 0.5s linear;
+        }*/
+    </style>
+    <link rel="stylesheet" type="text/css" href="./src/idangerous.swiper.css">
+    <link rel="stylesheet" type="text/css" href="./src/idangerous.swiper.3dflow.css">
+</head>
+<body>
+    <div class="swiper-container" id="investproSwiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="investpro newhand_slide">
+                    <img src="./imgs/act.jpg">
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="investpro sxm_slide">
+                    <img src="./imgs/huangbo.jpg">
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="investpro hrplan_slide">
+                    <img src="./imgs/img1.jpg">
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="investpro newhand_slide">
+                    <img src="./imgs/act.jpg">
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="investpro sxm_slide">
+                    <img src="./imgs/huangbo.jpg">
+                </div>
+            </div>
+        </div>
+        <!-- <div class="swiper-pagination" id="pagination"></div> -->
+        <div class="investproTab investpro-prev" id="investpro-prev">上一页</div>
+        <div class="investproTab investpro-next" id="investpro-next">下一页</div>
+    </div>
+<script type="text/javascript" src="./src/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="./src/idangerous.swiper-2.0.min.js"></script>
+<script type="text/javascript" src="./src/idangerous.swiper.3dflow-2.0.js"></script>
+<script type="text/javascript">
+    var mySwiper = new Swiper('.swiper-container',{
+         centeredSlides : true,
+         loop:true,
+         slidesPerView : 'auto',
+         // loopedSlides :5,
+         //其他设置
+         tdFlow: {
+             rotate : 0,
+             shadows : false
+         }
+     }); 
+    $('#investpro-prev').on('click',function(){
+        mySwiper.swipePrev();
+    });
+    $('#investpro-next').on('click',function(){
+        mySwiper.swipeNext();
+    })
+
+</script>
+</body>
+</html>

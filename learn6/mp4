@@ -1,0 +1,133 @@
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		.swiper-container {
+		    width: 600px;
+		    height: 300px;
+		} 
+		.swiper-slide{
+			display: flex;
+		}
+		.swiper-slide div:first-child(){
+			margin-left: 5%;
+		}
+		.controls{
+			position: relative;
+			width: 25%;
+			flex:1;
+		}
+		.controls video{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+		}
+		.controls img{
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin-top: -20px;
+			margin-left: -20px;
+			z-index: 999;
+		}
+	</style>
+	<link rel="stylesheet" type="text/css" href="src/swiper-3.4.2.min.css">
+
+</head>
+<body>
+
+	<div class="swiper-container">
+		<div class="swiper-wrapper">
+			<div class="swiper-slide">
+					<div class="controls" data-id="1">
+						<img src="src/play.png" id="c-imgs">
+						<video id="myvideo">
+						  <source src="src/san.mp4"  type="video/mp4">
+						  <!-- <source src="src/san.ogg"  type="video/ogg"> -->
+						  您的浏览器不支持 HTML5 video 标签。
+						</video>	
+					</div>	
+					<div class="controls" data-id="2">
+						<img src="src/play.png" class="c-imgs">
+						<video class="myvideo" >
+						  <source src="src/san.mp4"  type="video/mp4">
+						  <source src="src/san.ogg"  type="video/ogg">
+						  您的浏览器不支持 HTML5 video 标签。
+						</video>	
+					</div>
+					<div class="controls" data-id="3">
+						<img src="src/play.png" class="c-imgs">
+						<video class="myvideo">
+						  <source src="src/san.mp4"  type="video/mp4">
+						  <source src="src/san.ogg"  type="video/ogg">
+						  您的浏览器不支持 HTML5 video 标签。
+						</video>	
+					</div>	
+			</div>
+			<div class="swiper-slide">Slide 2</div>
+			<div class="swiper-slide">Slide 3</div>
+		</div>
+		<!-- 如果需要分页器 -->
+		<!-- <div class="swiper-pagination"></div> -->
+
+		<!-- 如果需要导航按钮 -->
+		<div class="swiper-button-prev"></div>
+		<div class="swiper-button-next"></div>
+
+		<!-- 如果需要滚动条 -->
+		<!-- <div class="swiper-scrollbar"></div> -->
+	</div>
+
+	<script type="text/javascript" src="src/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript" src="src/swiper-3.4.2.jquery.min.js"></script>
+	<script type="text/javascript">
+			var mySwiper = new Swiper ('.swiper-container', {
+			   // direction: 'vertical',
+			   loop: true,
+			   
+			   // 如果需要分页器
+			   // pagination: '.swiper-pagination',
+			   
+			   // 如果需要前进后退按钮
+			   nextButton: '.swiper-button-next',
+			   prevButton: '.swiper-button-prev',
+			   
+			 })	
+			// var myvideo
+			var myvideo = $('.swiper-slide');
+				console.log(myvideo)
+
+			for(var i=0;i<myvideo.length;i++){
+				// console.log(myvideo[i])
+			}
+		
+			// $('.c-imgs').on('click',function(){
+			// 	// myvideo.attr('data-id',i)
+			// 	for(var i=0;i<myvideo.length;i++){
+			// 	alert(i)
+
+			// 		console.log(myvideo[i])
+			// 		if(myvideo[i].paused) {
+			// 		  myvideo[i].play();
+			// 		  $('#c-imgs').hide();
+		 //     	}
+		 //     	else {
+		 //        myvideo[i].pause();
+		 //        $('#c-imgs').show();
+		 //     	}
+			// 	}
+				
+	  //    		return false;
+			// })
+
+	</script>
+</body>
+</html>
+
+
+
+
+
+

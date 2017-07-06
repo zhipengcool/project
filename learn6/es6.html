@@ -1,0 +1,243 @@
+<html>
+<head>
+	<title>ES6</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;	}
+		.wrap{
+			width: 500px;
+			/*width: calc(50% + 2em);*/
+			margin: 0 auto;
+			background:#00f;
+			padding: 3px 0;
+		}
+		.calc{
+			width: 90%;
+			/*width: calc(50%+2em);*/
+			height: 200px;
+			background: #f00;
+			padding: 10px;
+			border: 5px solid green;
+			width: -webkit-calc(100% - (10px + 5px) * 2);
+			width: -moz-calc(100% - (10px + 5px) * 2);
+			width: calc(100% - (10px + 5px) * 2);
+		}
+	</style>
+</head>
+<body>
+	<div class="texts" ></div>
+	<!-- <canvas id="test-canvas" width="400" height="300"></canvas> -->
+	<!-- <div class="wrap">
+		<div class="calc"></div>
+	</div> -->
+	<script type="text/javascript">
+	// var tes = document.getElementsByClassName('texts')[0];
+	// console.log(tes)
+	// tes.innerHTML ='<h1>丹大快速\n的时代</h1>'; 
+	// var s = 'heelo, world';
+	// console.log(s.split(','));
+	// console.log(s);
+	var text = "test:1,2,3";
+	var ps = /\d+/g;
+	console.log(ps.test(text));
+	console.log(text.search(ps));
+	console.log(text.match(ps));
+	console.log(text.replace(ps,"#"));
+	console.log(text.split(/\D+/));
+
+
+
+	// var canvas = document.getElementById('test-canvas');
+	// 	if(canvas.getContext){
+	// 	console.log(canvas.getContext)
+	// 		// alert('你的浏览器支持');
+	// 	}else{
+	// 		// alert('你的浏览器不支持')
+	// 	}
+	// 	var cts = canvas.getContext('2d');
+	// 	cts.clearRect(0,0,200,200);
+	// 	cts.fillStyle = "#ddd";
+	// 	cts.fillRect(10,10,200,200);
+	// 	var path = new Path2D();
+	// 	console.log(path);
+	// 	path.arc(75, 75, 50, 0, Math.PI*2, true);
+	// 	path.moveTo(110,75);
+	// 	path.arc(75, 75, 35, 0, Math.PI, false);
+	// 	path.moveTo(65, 65);
+	// 	path.arc(60, 65, 5, 0, Math.PI*2, true);
+	// 	path.moveTo(95, 65);
+	// 	path.arc(90, 65, 5, 0, Math.PI*2, true);
+	// 	cts.strokeStyle = '#0000ff';
+	// 	cts.stroke(path);
+
+	// 	var calc = document.getElementsByClassName('calc');
+
+		// var a = [];
+		// for(var i=0;i<10;i++){  // 块级作用域
+		// 	a[i] = function(){
+		// 		console.log(i)
+		// 	}
+		// }
+		// a[9]();
+		// for(let i=0;i<3;i++){ // 父作用域
+		// 	let i = "abc";		  // 子作用域
+		// 	console.log(i)			// 3次abc
+		// }
+
+		 // 不存在变量的提升
+		 // 暂时性死区。 let和const变量声明之前都是暂时性死区
+		 // function bar(x=2,y=x){
+		 // 	return [x,y];
+		 // }
+		 // console.log(bar());
+
+		 // 不允许重复声明： let不允许在相同作用域内，重复声明同一个变量。
+		 // function cc(){	
+		 // 	let a =1;
+		 // 	let a = 10;
+		 //  console.log(a)
+		 // }
+		 // cc();
+
+		 // var tmp = new Date();
+
+		 // function f() {
+		 //   console.log(tmp);
+		 //   if (true) {
+		 //   	// console.log(11)
+		 //     var tmp = 'hello world';
+		 //   }
+		 // }
+
+		 // f(); // undefined
+
+		 // function f1() {
+		 //   let n = 5;
+		 //   if (true) {
+		 //     let n = 10;
+		 //   }
+		 //   console.log(n); // 5
+		 // }
+		 // f1();
+
+		 // 块级作用域以及函数声明
+		 // 允许在块级作用域内声明函数。 在ES6的话，可以用函数表达式
+		 // 函数声明类似于var，即会提升到全局作用域或函数作用域的头部。
+		 // 同时，函数声明还会提升到所在的块级作用域的头部。
+
+		 // function f() { console.log('I am outside!'); }
+
+		 // (function () {
+		 //   if (false) {
+		 //   	// function f() { console.log('I am inside!'); }
+		 //   	f = function(){
+		 //   		console.log('I am inside!');
+		 //   	}
+		 //   }
+		 //   f();
+		 // }());
+
+		// {
+		//   let a = 'secret';
+		//   function f() {
+		//     return console.log(a);
+		//   }
+
+		// }
+		// f();
+
+		// 块级作用域的出现，让立即执行函数不再那么必要。
+		// 块级作用域，外层作用域无法访问内层作用域。
+		// 内层作用域可以和外层作用域的变量名一样。
+
+		// (function(){
+		// 	var tmp = 10;
+		// 	console.log(tmp);
+		// }());
+		//  console.log(tmp);
+		// {
+		//   let a = 1;
+		//   let f = function () {
+		//     return a;
+		//   };
+		// 	let t = f();
+		// 	t = t * t + 1;
+		// 	console.log(t);
+		// }
+		// function f() { console.log('I am outside!'); }
+		// (function () {
+		//   if (false) {
+		//     // 重复声明一次函数f
+		//     function f() { console.log('I am inside!'); }
+		//   }
+		//   f();
+		// }())
+
+		// const a = [];
+		// a.push('Hello'); // 可执行
+		// a.length = 0;    // 可执行
+		// a = ['Dave'];    // 报错
+		// console.log(a)
+		// const foo = {};
+		// // const foo = Object.freeze({});
+		// foo.prop = 123;
+		// console.log(foo);
+		// var a = 1;
+		// let a = 2;
+		// console.log(window.a)
+		// let [x, y, z] = new Set(['a', 'b', 'c']);
+		// console.log(x);
+		// let [foo = true] = [];
+		// foo // true
+		// let [x, y = 'b'] = ['a']; // x='a', y='b'
+		// let [x, y = 'b'] = ['a', 1]; // x='a', y='b'
+		// console.log(x);
+		// console.log(y);
+		// if (-1/0 === 1/0) {
+		// 	console.log(11)
+		// }else{
+		// 	console.log(22)
+		// };
+
+		// 默认值可以引用结构赋值的其他变量，前提是该变量已经存在。
+		// let [x = 1,y = x] = [];
+		// console.log(y)
+
+		// var { bar: foo } = { foo: 'aaa', bar: 'bbb' };
+		// console.log(foo) // "aaa"
+
+		// let obj = { first: 'hello', last: 'world' };
+		// let { first: f, last: l } = obj;
+		// f // 'hello'
+		// l // 'world'
+		// let foo;
+		// ({foo} = {foo: 1}); // SyntaxError: Duplicate declaration "foo"
+		// console.log(foo)
+		// let baz;
+		// let {bar: baz} = {bar: 1};
+		// let obj = {
+		// 	p : ['hello',{y:'world'}]
+		// }
+		// let {p:[x,{y}]} = obj;
+		// console.log(x);
+		// console.log(y);
+		// let node = {
+		// 	loc : {
+		// 		start : {
+		// 			line : 1,
+		// 			circle : 2
+		// 		}
+		// 	}
+		// };
+		// let {loc:{start:{line}}} = node;
+		// console.log(line);
+		// let obj = {},arr = [];
+		// ({foo:obj.prop,bar:arr[0]} = {foo:123,bar:true});
+		// console.log(arr)
+		// var {x,y = 3} = {z : 1};
+		// var {x:y = 3} = {x:4};
+		var { message: msg = 'Something went wrong' } = {message : ""};
+		// console.log(x); 
+		console.log(msg); // 3
+		</script>
+	</body>
+	</html>

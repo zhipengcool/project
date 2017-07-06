@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<title></title>
+<link rel="stylesheet" href="http://m.hurongclub.com/Resource/css/base_new.css">
+<link rel="stylesheet" href="http://m.hurongclub.com/Resource/css/swiper.min.css">
+<script src="http://m.hurongclub.com/Resource/js/zepto.min.js"></script>
+<style>
+body{
+	background: #f4664b;
+	font-size:14px;
+}
+.box{
+	/*width:1200px;*/
+	height:360px;
+	margin:0 auto;
+	/*border:1px solid #ccc;*/
+}
+.swiper-wrapper{
+	margin-left: -90px;
+}
+.swiper-container{
+	height:360px;
+}
+#investproSwiper{
+	margin-top: 52px;
+}
+#investproSwiper .swiper-slide{
+	width:420px;
+	/*height:871px;*/
+}
+#investproSwiper .swiper-slide .investpro{
+	width:206px;
+	height:280px;
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	margin-top: 29px;
+	margin-left: 207px;
+	-webkit-transition: all 0.5s linear;
+}
+#investproSwiper .swiper-slide-active .investpro{
+	width:580px;
+	height:300px;
+	margin-left:10px;
+	margin-top:0px;
+}
+#investproSwiper .swiper-slide .hrplan_slide{
+	/* background-image: url(images/hrplan_small.png); */
+	background: red;
+}
+#investproSwiper .swiper-slide-active .hrplan_slide{
+	/* background-image: url(images/hrplan_big.png); */
+	background: #ccc;
+}
+#investproSwiper .swiper-slide .newhand_slide{
+	/* background-image: url(images/newhand_small.png); */
+	background: blue;
+}
+#investproSwiper .swiper-slide-active .newhand_slide{
+	/* background-image: url(images/newhand_big.png); */
+	/*width: 100%;*/
+	/*background: green;*/
+}
+#investproSwiper .swiper-slide .sxm_slide{
+	/* background-image: url(images/sxm_small.png); */
+	background: #212121;
+}
+#investproSwiper .swiper-slide-active .sxm_slide{
+	/* background-image: url(images/sxm_big.png); */
+	background: yellow;
+}
+.swiper-slide a{
+	width:380px;
+	height: 70px;
+	background: #eb4e39;
+	display: block;
+	font-size: 36px;
+	color: #fff;
+	text-align: center;
+	line-height: 70px;
+	border-radius: 8px;
+	position: absolute;
+	left: 0;
+	right: 0;
+	margin: auto;
+	bottom: 85px;
+	z-index: 2;
+}
+.swiper-slide-active .investpro a{
+	width: 433px;
+	height: 80px;
+	line-height: 80px;
+	bottom: 40px;
+}
+.swiper-container-horizontal>.swiper-pagination{
+	height:50px;
+	text-align:center;
+	bottom:20px;
+}
+.swiper-pagination-bullet{
+	background:#fff;
+	border-radius:50%;
+	width:12px;
+	height:12px;
+	margin-left:18px;
+	opacity:1;
+}
+.swiper-pagination-bullet-active{
+	background:#e04531;
+}
+.investproTab{
+	width:30px;
+	height:30px;
+	position: absolute;
+	background: rgba(0,0,0,.5);
+	top: 160px;
+	z-index: 2;
+	opacity: 1;
+	text-align: center;
+	line-height: 30px;
+	border-radius: 20px;
+	font-size: 20px;
+	font-weight: bold;
+	color:#fff;
+	cursor:pointer;
+}
+.investpro-prev{
+	left:120px;
+}
+.investpro-next{
+	right:100px;
+}
+</style>
+</head>
+<body>
+	<div class="box">
+		<div class="swiper-container" id="investproSwiper">
+		    <div class="swiper-wrapper">
+		        <div class="swiper-slide">
+		            <div class="investpro newhand_slide">
+		            	<img src="./imgs/act.jpg">
+		            </div>
+		        </div>
+		        <div class="swiper-slide">
+		            <div class="investpro sxm_slide">
+		            	<img src="./imgs/huangbo.jpg">
+		            </div>
+		        </div>
+		        <div class="swiper-slide">
+		            <div class="investpro hrplan_slide">
+		            	<img src="./imgs/img1.jpg">
+		            </div>
+		        </div>
+		        <div class="swiper-slide">
+		            <div class="investpro newhand_slide">
+		            	<img src="./imgs/act.jpg">
+		            </div>
+		        </div>
+		        <div class="swiper-slide">
+		            <div class="investpro sxm_slide">
+		            	<img src="./imgs/huangbo.jpg">
+		            </div>
+		        </div>
+		        <div class="swiper-slide">
+		            <div class="investpro hrplan_slide">
+		            	<img src="./imgs/img1.jpg">
+		            </div>
+		        </div>
+		    </div>
+		    <div class="swiper-pagination" id="pagination"></div>
+		    <div class="investproTab investpro-prev" id="investpro-prev"><</div>
+		    <div class="investproTab investpro-next" id="investpro-next">></div>
+		</div>
+	</div>
+<script src="http://m.hurongclub.com/Resource/js/swiper-3.2.5.min.js"></script>
+<script>
+	var _pagination  = document.getElementById('pagination');
+    var abcSwiper = new Swiper("#investproSwiper", {
+        slidesPerView: 'auto',   //设置slider容器能够同时显示的slides数量
+        centeredSlides: true,    //设定为true时，活动块会居中，而不是默认状态下的居左。
+        spaceBetween : -40,
+        loop: true,
+        speed: 500,
+        noSwiping: false,        //设置为true时禁止切换
+        paginationClickable: false,
+        // pagination : '.swiper-pagination',
+        prevButton:'#investpro-prev',
+        nextButton:'#investpro-next',
+        onSlideChangeStart:function(swiper){ 
+        	console.log(swiper.activeIndex)
+	    	_pagination.innerHtml = swiper.activeIndex-3;
+	    }
+    });
+    /*onSlideChangeEnd:function(swiper){ 
+    	alert(swiper.activeIndex); 
+    }*/
+</script>
+</body>
+</html>
+
+
+
+

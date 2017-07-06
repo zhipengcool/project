@@ -1,0 +1,43 @@
+<html>
+<head>
+	<title>星级评分第一种实现方式</title>
+	<style type="text/css">
+		body,ul,li{
+			margin: 0;
+			padding: 0;
+		}
+		ul li{
+			list-style: none;
+		}
+		.rating{
+			width: 180px;
+			height: 26px;
+			margin: 100px auto;
+		}
+		.rating-item{
+			float: left;
+			width: 36px;
+			height: 32px;
+			background: url(http://i1.piimg.com/1949/dbcc555b1333b1c2.png) no-repeat;
+			cursor:pointer;
+		}
+	</style>
+</head>
+<body>
+	<ul class="rating" id="rating">
+		<li class="rating-item" title="很不好"></li>
+		<li class="rating-item" title="不好"></li>	
+		<li class="rating-item" title="一般"></li>	
+		<li class="rating-item" title="好"></li>	
+		<li class="rating-item" title="很好"></li>	
+	</ul>
+	<script type="text/javascript" src="./src/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript">
+			var num = 2;
+			$('#rating').find('.rating-item').each(function(index){
+				
+			})
+
+	</script>
+</body>
+</html>

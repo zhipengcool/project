@@ -1,0 +1,159 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>优酷</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.carousel{
+			width: 1000px;
+			height: 400px;
+			border: 1px solid #000;
+			margin: 50px auto;
+			position: relative;
+		}
+		.carousel ul{
+			list-style: none;
+		}
+		.carousel ul li{
+			position: absolute;
+		}
+		.carousel ul li img{
+			width: 100%;
+			height: 100%;
+			border: none;
+		}
+		.carousel .btns a{
+			position: absolute;
+			width: 40px;
+			height: 40px;
+			top: 40%;
+			background: orange;
+			background: -webkit-linear-gradient(top,gold,orange);
+			background: -moz-linear-gradient(top,gold,orange);
+			margin-top: -20px;
+			z-index: 1000;
+			border-radius: 10%;
+		}
+		.carousel .btns a.btn1{
+			left:10px;
+		}
+		.carousel .btns a.btn2{
+			right:10px;
+		}
+		.carousel .mask{
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			background-color: black;
+			top: 0;
+			left: 0;
+		}
+	</style>
+</head>
+<body>
+	<div class="carousel">
+		<ul>
+			<li><a href=""><img src="imgs/act.jpg" /></a><div class="mask"></div></li>
+			<li><a href=""><img src="imgs/huangbo.jpg" /></a><div class="mask"></div></li>
+			<li><a href=""><img src="imgs/img1.jpg" /></a><div class="mask"></div></li>
+			<li><a href=""><img src="imgs/h1.png" /></a><div class="mask"></div></li>
+			<li><a href=""><img src="imgs/h2.png" /></a><div class="mask"></div></li>
+			<li><a href=""><img src="imgs/h3.png" /></a><div class="mask"></div></li>
+			<li><a href=""><img src="imgs/h4.png" /></a><div class="mask"></div></li>
+			<li><a href=""><img src="imgs/h5.png" /></a><div class="mask"></div></li>
+			<li><a href=""><img src="imgs/h6.png" /></a><div class="mask"></div></li>
+		</ul>
+		<div class="btns">
+			<a href="javascript:;" class="btn1"></a>
+			<a href="javascript:;" class="btn2"></a>
+		</div>
+	</div>
+	<script type="text/javascript" src="./src/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript">
+		//需要动画的数组
+		var jsonArr = [
+		    {"width": 310 , "height" : 150 , "left": -120, "top": 100 , "opacity" : 0},
+		    {"width": 430 , "height" : 200 , "left": 0   , "top": 70 , "opacity" : 1},
+		    {"width": 660 , "height" : 300 , "left": 170 , "top": 0   , "opacity" : 1},
+		    {"width": 430 , "height" : 200 , "left": 570 , "top": 70  , "opacity" : 1},
+		    {"width": 310 , "height" : 150 , "left": 830 , "top": 100 , "opacity" : 0},
+		    {},  //按理说这里的4个空对象应该由循环语句加，但是为了学习理解，我们人肉加
+		    {},
+		    {},
+		    {}
+		];
+
+		//不能动画的数组
+		var zindexArr = [
+			{"z-index":1 , "display" : "block"},
+			{"z-index":2 , "display" : "block"},
+			{"z-index":3 , "display" : "block"},
+			{"z-index":2 , "display" : "block"},
+			{"z-index":1 , "display" : "block"},
+			{"display" : "none" , "opacity" : 0},  //按理说这里的4个对象应该由循环语句加，但是为了学习理解，我们人肉加
+			{"display" : "none" , "opacity" : 0},
+			{"display" : "none" , "opacity" : 0},
+			{"display" : "none" , "opacity" : 0}
+		];
+
+		//mask的透明度
+		var maskOpacityArr = [
+			{"opacity" : 0.6},
+			{"opacity" : 0.6},
+			{"opacity" : 0},
+			{"opacity" : 0.6},
+			{"opacity" : 0.6},
+			{},
+			{},
+			{},
+			{}
+		]
+
+		//图片个数
+		var length = $("carousel ul li").length;
+		//遍历DOM依次设置json
+		set();
+
+		function set(){
+			$(".carousel ul li").each(function(i){
+				//先设置z-index，因为z-index不能参与动画
+				$(this).css(zindexArr[i]);
+				//然后动画
+				$(this).animate(jsonArr[i],1000);
+				//设置mask的透明度
+				$(this).find(".mask").animate(maskOpacityArr[i],1000);
+			});
+		}
+
+		//点击右按钮
+		$(".btn2").click(function(){
+			//流氓
+			if($(".carousel ul li").is(":animated")) return;
+			//数组改变，核心语句：
+			jsonArr.unshift(jsonArr.pop());
+			zindexArr.unshift(zindexArr.pop());
+			maskOpacityArr.unshift(maskOpacityArr.pop());
+			//遍历DOM，依次设置JSON
+			set();
+			
+		});
+
+
+		//点击左按钮
+		$(".btn1").click(function(){
+			//流氓
+			if($(".carousel ul li").is(":animated")) return;
+			//数组改变，核心语句：
+			jsonArr.push(jsonArr.shift());
+			zindexArr.push(zindexArr.shift());
+			maskOpacityArr.push(maskOpacityArr.shift());
+			//遍历DOM，依次设置JSON
+			set();
+		});
+	</script>
+</body>
+</html>

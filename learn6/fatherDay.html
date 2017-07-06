@@ -1,0 +1,76 @@
+<html>
+<head>
+	<title>父亲节</title>
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">	
+	<link rel="stylesheet" type="text/css" href="src/swiper-3.4.2.min.css">
+
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		.swiper-slide img{
+			width: 100%;
+			height: 100%;
+		}
+		.aaa{
+			position: absolute;
+			top: 2%;
+			right: 4%;
+			width: 12%;
+			height: 8%;
+			z-index: 9999;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="aaa" class="aaa">
+		<audio id="music" class="music"  src="father.mp3" autoplay='autoplay'>
+			你的浏览器不支持
+		</audio>
+	</div>
+	
+	<div class="swiper-container">
+  	<div class="swiper-wrapper">
+      <div class="swiper-slide">
+      	<img src="imgs/h1.png">
+      </div>
+      <div class="swiper-slide">
+      	<img src="imgs/h2.png">
+      </div>
+      <div class="swiper-slide">
+      	<img src="imgs/h3.png">
+      </div>
+      <div class="swiper-slide">
+      	<img src="imgs/h4.png">
+      </div>
+      <div class="swiper-slide">
+      	<img src="imgs/h5.png">
+      </div>
+      <div class="swiper-slide">
+      	<img src="imgs/h6.png">
+      </div>
+      <div class="swiper-slide">
+      	<img src="imgs/h7.png">
+      </div>
+  	</div>
+	</div>
+	<script type="text/javascript" src="src/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript" src="src/swiper-3.4.2.jquery.min.js"></script>
+	<script type="text/javascript">
+		var mySwiper = new Swiper ('.swiper-container', {
+		   direction: 'vertical',
+		   loop: true
+		 })
+		var audio = document.getElementById('music');
+		 $('#aaa').on('click',function(){
+		 	if (audio!==null) {
+		 			if(audio.paused){
+		 				audio.play();
+		 			}else{
+		 				audio.pause();
+		 			}
+		 	}
+		 })   
+
+	</script>
+</body>
+</html>

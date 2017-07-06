@@ -1,0 +1,8 @@
+.hairline(@color,@style:solid){
+  @media(-webkit-min-device-pixel-ratio:2){
+    border:0.5px @style @color;
+  }
+}
+.ios8-cnt{
+  .hairline(#f00);
+}
