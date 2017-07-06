@@ -1,0 +1,130 @@
+<% content_for :title do %>
+Happy Fans Day 饭米粒约你放肆一夏
+<% end %>
+<div style="margin: 0 auto;width:0;height:0;overflow: hidden">
+  <%= image_tag 'family/confessions/logo.jpg' %>
+</div>
+<div class="fly_container">
+  <div class="ufo_logo">
+   <%= image_tag 'family/confessions/head_logo.png' %>
+ </div>
+
+ <div id="fly_ufo">
+  <div class="animated bounceInDown" id="ufo_img">
+    <%= image_tag 'family/confessions/UFO_header.png' %>
+  </div>
+  <div class="light" id="light">
+    <div class="txtVal" id="txtVal"></div>
+    <%= image_tag 'family/confessions/lightyellow.png' %>
+    <div id="ufo_happy">
+      <p class="page0" id="page0">
+        Happy Fans Day<br>
+        <b>星粉嘉年华</b><br>
+        约你放肆一夏
+      </p>
+      <p class="animated bounceInUp" id="page1">
+        一场<br/>史无前例的星粉互动游乐园<br/>就在这个暑期<br/>与你最喜爱的明星面对面
+      </p>
+      <p class="animated bounceInUp" id="page2">
+        想要TA和你近距离接触吗<br/>是让TA为你深情一曲<br/>还是来一段放飞自我的尬舞<br/>只要你大胆写下你的心愿<br/>向TA表白<br/>我们统统满足你
+      </p>
+    </div>
+
+    <div class="animated slideOutLeft infinite" id="ufo_bg3">
+      <%= image_tag 'family/confessions/bg3.png' %>
+    </div>
+    <div class="animated slideOutLeft infinite" id="ufo_bg2">
+      <%= image_tag 'family/confessions/bg1.png' %>
+    </div>
+    <div class="animated slideOutLeft infinite" id="ufo_bg4">
+      <%= image_tag 'family/confessions/bg1.png' %>
+    </div>
+
+  </div>
+
+</div>
+
+<div >
+  <div class="ufo_message" id="ufo_message">
+    <textarea id="ufo_information" name="ufo_inf"></textarea>
+  </div>
+
+  <div class="ufo_btn" id="ufo_btn">
+    <div class="arrow_air" id="arrow_air">
+      <%= image_tag 'family/confessions/air.png' %>
+    </div>
+    <button type="button" class="animated pulse infinite loveBtn" id="loveBtn">
+      <%= image_tag 'family/confessions/love.png' %>
+    </button>
+  </div>
+</div>
+
+<div class="ufo_artical" id="ufo_artical">
+  <p><b>表白方法：</b></p>
+  <p>写出你想对他说的话</p>
+  <p>格式：#星粉嘉年华#+#明星名字#+我想和你XXX</p>
+  <p>收到表白最多的明星将现身嘉年华现场实现你的心愿</p>
+</div>
+<div class="footer_logo">
+  <%= image_tag 'family/confessions/bgbottom1.png' %>
+</div>
+
+<div class="sharecontent">
+  <div class='mark' id="mark"></div>
+  <div class='shareMore' id="shareMore">
+    <%= image_tag 'family/confessions/markCont.png' %>
+    <%= image_tag 'family/confessions/weibo.png' %>
+  </div>
+</div>
+
+<div class="shareArrow" id="shareArrow">
+ <%= image_tag 'family/confessions/arrows.png' %>
+</div>
+
+</div>
+
+
+<% content_for :head do %>
+<%= stylesheet_link_tag 'family/confessions.css' %>
+<% end %>
+<% content_for :tail do %>
+  <script type="text/javascript" charset="utf-8">
+    $(function () {
+      wx.ready(function() {
+        //微信的分享接口写在这里
+        //发送给好友
+        wx.onMenuShareTimeline({  
+              title: 'Happy Fans Day 饭米粒约你放肆一夏!', // 分享标题  
+              link: 'http://i.wurener.com/family/confessions',  
+              desc: '星粉嘉年华,一场史无前例的星粉互动游园会。来给你的爱豆表白心愿吧！',
+              imgUrl: 'http://i.wurener.com/assets/family/confessions/logo-f1b6962f18e15e3fabb11d37ddf8ff1f52a9384327a50f9ee852e6c6bbc1efb3.jpg' // 分享图标  
+            });
+        // 获取"分享给朋友"按钮点击状态及自定义分享内容接口  
+        wx.onMenuShareAppMessage({  
+              title: 'Happy Fans Day 饭米粒约你放肆一夏！', // 分享标题  
+              desc: '星粉嘉年华,一场史无前例的星粉互动游园会。来给你的爱豆表白心愿吧！', // 分享描述  
+              link: 'http://i.wurener.com/family/confessions',  
+              imgUrl: 'http://i.wurener.com/assets/family/confessions/logo-f1b6962f18e15e3fabb11d37ddf8ff1f52a9384327a50f9ee852e6c6bbc1efb3.jpg', // 分享图标  
+            });
+        wx.onMenuShareQQ({  
+              title: 'Happy Fans Day 饭米粒约你放肆一夏!', // 分享标题  
+              desc: '星粉嘉年华,一场史无前例的星粉互动游园会。来给你的爱豆表白心愿吧！', // 分享描述  
+              link: 'http://i.wurener.com/family/confessions', // 分享链接  
+              imgUrl: 'http://i.wurener.com/assets/family/confessions/logo-f1b6962f18e15e3fabb11d37ddf8ff1f52a9384327a50f9ee852e6c6bbc1efb3.jpg' // 分享图标  
+          });
+        wx.onMenuShareWeibo({  
+              title: 'Happy Fans Day 饭米粒约你放肆一夏!', // 分享标题  
+              desc: '星粉嘉年华,一场史无前例的星粉互动游园会。来给你的爱豆表白心愿吧！', // 分享描述  
+              link: 'http://i.wurener.com/family/confessions', // 分享链接  
+              imgUrl: 'http://i.wurener.com/assets/family/confessions/logo-f1b6962f18e15e3fabb11d37ddf8ff1f52a9384327a50f9ee852e6c6bbc1efb3.jpg' // 分享图标  
+          });
+        wx.onMenuShareQZone({  
+              title: 'Happy Fans Day 饭米粒约你放肆一夏!', // 分享标题  
+              desc: '星粉嘉年华,一场史无前例的星粉互动游园会。来给你的爱豆表白心愿吧！', // 分享描述  
+              link: 'http://i.wurener.com/family/confessions', // 分享链接  
+              imgUrl: 'http://i.wurener.com/assets/family/confessions/logo-f1b6962f18e15e3fabb11d37ddf8ff1f52a9384327a50f9ee852e6c6bbc1efb3.jpg' // 分享图标  
+          });         
+      });
+    });
+  </script>
+<% end %>
